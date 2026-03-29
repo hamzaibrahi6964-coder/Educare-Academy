@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Educare Academy | Parent Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dashboard-body">
+
+  <div class="dashboard-layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img src="educare logo.jpg" alt="logo" class="sidebar-logo">
+        <div>
+          <h2>Educare</h2>
+          <p>Parent Panel</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">My Child</a>
+        <a href="#">Results</a>
+        <a href="#">School Fees</a>
+        <a href="#">Attendance</a>
+        <a href="portal.html">Back to Portal</a>
+        <a href="#" onclick="logout()">Logout</a>
+      </nav>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="dashboard-header">
+        <div>
+          <h1>Parent Dashboard</h1>
+          <p>Welcome back, <span id="parentName">Parent</span></p>
+        </div>
+        <a href="portal.html" class="btn primary-btn">Portal Home</a>
+      </header>
+
+      <section class="dashboard-cards">
+        <div class="dash-card">
+          <h3>Student Name</h3>
+          <p>Maryam Ibrahim</p>
+        </div>
+        <div class="dash-card">
+          <h3>Class</h3>
+          <p>JSS 2</p>
+        </div>
+        <div class="dash-card">
+          <h3>Student ID</h3>
+          <p>EDU/001</p>
+        </div>
+        <div class="dash-card">
+          <h3>Attendance</h3>
+          <p>92%</p>
+        </div>
+      </section>
+
+      <section class="dashboard-grid">
+        <div class="dashboard-panel">
+          <h2>Recent Results</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Subject</th>
+                  <th>Score</th>
+                  <th>Grade</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mathematics</td>
+                  <td>78</td>
+                  <td>B</td>
+                </tr>
+                <tr>
+                  <td>English</td>
+                  <td>82</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td>Basic Science</td>
+                  <td>75</td>
+                  <td>B</td>
+                </tr>
+                <tr>
+                  <td>Social Studies</td>
+                  <td>80</td>
+                  <td>A</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="dashboard-panel">
+          <h2>School Fees</h2>
+          <div class="fee-box">
+            <p><strong>Total Fees:</strong> ₦85,000</p>
+            <p><strong>Amount Paid:</strong> ₦60,000</p>
+            <p><strong>Balance:</strong> ₦25,000</p>
+            <p><strong>Status:</strong> Part Payment</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="dashboard-grid">
+        <div class="dashboard-panel">
+          <h2>Child Information</h2>
+          <ul class="dashboard-list">
+            <li><strong>Full Name:</strong> Maryam Ibrahim</li>
+            <li><strong>Gender:</strong> Female</li>
+            <li><strong>Class:</strong> JSS 2</li>
+            <li><strong>Session:</strong> 2025/2026</li>
+            <li><strong>Parent Contact:</strong> 0903 000 9912</li>
+          </ul>
+        </div>
+
+        <div class="dashboard-panel">
+          <h2>Announcements</h2>
+          <ul class="dashboard-list">
+            <li>Second term examination starts next week.</li>
+            <li>School fees balance should be paid before exams.</li>
+            <li>Parents meeting holds on Friday by 10:00 AM.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const role = localStorage.getItem("educareRole");
+    if (role !== "parent") {
+      window.location.href = "login.html?role=parent";
+    }
+
+    document.getElementById("parentName").textContent = localStorage.getItem("educareUser") || "Parent";
+
+    function logout() {
+      localStorage.removeItem("educareRole");
+      localStorage.removeItem("educareUser");
+      window.location.href = "login.html?role=parent";
+    }
+  </script>
+</body>
+</html>
