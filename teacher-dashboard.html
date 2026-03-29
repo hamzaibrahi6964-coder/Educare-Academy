@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Educare Academy | Teacher Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dashboard-body">
+
+  <div class="dashboard-layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img src="educare logo.jpg" alt="logo" class="sidebar-logo">
+        <div>
+          <h2>Educare</h2>
+          <p>Teacher Panel</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">My Classes</a>
+        <a href="#">Results</a>
+        <a href="#">Students</a>
+        <a href="#">Attendance</a>
+        <a href="portal.html">Back to Portal</a>
+        <a href="#" onclick="logout()">Logout</a>
+      </nav>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="dashboard-header">
+        <div>
+          <h1>Teacher Dashboard</h1>
+          <p>Welcome back, <span id="teacherName">Teacher</span></p>
+        </div>
+        <a href="portal.html" class="btn primary-btn">Portal Home</a>
+      </header>
+
+      <section class="dashboard-cards">
+        <div class="dash-card">
+          <h3>Assigned Class</h3>
+          <p>JSS 2</p>
+        </div>
+        <div class="dash-card">
+          <h3>Subject</h3>
+          <p>Mathematics</p>
+        </div>
+        <div class="dash-card">
+          <h3>Total Students</h3>
+          <p>34</p>
+        </div>
+        <div class="dash-card">
+          <h3>Pending Results</h3>
+          <p>6</p>
+        </div>
+      </section>
+
+      <section class="dashboard-grid">
+        <div class="dashboard-panel">
+          <h2>Class Record</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Student</th>
+                  <th>Class</th>
+                  <th>Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Maryam Ibrahim</td>
+                  <td>JSS 2</td>
+                  <td>78</td>
+                </tr>
+                <tr>
+                  <td>Usman Musa</td>
+                  <td>JSS 2</td>
+                  <td>81</td>
+                </tr>
+                <tr>
+                  <td>Safiya Bello</td>
+                  <td>JSS 2</td>
+                  <td>74</td>
+                </tr>
+                <tr>
+                  <td>Yusuf Adam</td>
+                  <td>JSS 2</td>
+                  <td>69</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="dashboard-panel">
+          <h2>Teacher Notes</h2>
+          <ul class="dashboard-list">
+            <li>Upload second continuous assessment before Friday.</li>
+            <li>Review low-performing students in JSS 2.</li>
+            <li>Attend staff meeting by 1:00 PM on Monday.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="dashboard-grid">
+        <div class="dashboard-panel">
+          <h2>Performance Summary</h2>
+          <ul class="dashboard-list">
+            <li><strong>Best Score:</strong> 92</li>
+            <li><strong>Average Score:</strong> 74</li>
+            <li><strong>Lowest Score:</strong> 51</li>
+            <li><strong>Class Teacher:</strong> Mrs. Amina</li>
+          </ul>
+        </div>
+
+        <div class="dashboard-panel">
+          <h2>Attendance Summary</h2>
+          <ul class="dashboard-list">
+            <li>Present Today: 30</li>
+            <li>Absent Today: 4</li>
+            <li>Total Class: 34</li>
+            <li>Attendance Rate: 88%</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const role = localStorage.getItem("educareRole");
+    if (role !== "teacher") {
+      window.location.href = "login.html?role=teacher";
+    }
+
+    document.getElementById("teacherName").textContent = localStorage.getItem("educareUser") || "Teacher";
+
+    function logout() {
+      localStorage.removeItem("educareRole");
+      localStorage.removeItem("educareUser");
+      window.location.href = "login.html?role=teacher";
+    }
+  </script>
+</body>
+</html>
