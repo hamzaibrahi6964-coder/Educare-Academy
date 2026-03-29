@@ -42,39 +42,39 @@
     <a href="portal.html" class="portal-btn mobile-portal active">Portal</a>
   </div>
 
-  <section class="page-banner">
-    <div class="container">
-      <h1>Portal Login</h1>
-      <p>Parents, teachers, and administrators can sign in here.</p>
-    </div>
-  </section>
+  <section class="login-hero">
+    <div class="container login-hero-inner">
+      <div class="login-left">
+        <span class="login-badge">Educare Academy Portal</span>
+        <h1 id="loginTitle">Parent Login</h1>
+        <p id="loginText">
+          Parents can sign in with email or student ID to access child records,
+          fees, performance, and important school updates.
+        </p>
 
-  <section class="section login-section">
-    <div class="container">
-      <div class="login-wrap">
-        <div class="login-info-card">
-          <h2 id="loginTitle">Login to Your Account</h2>
-          <p id="loginText">
-            Use the correct details for your role to continue to your dashboard.
-          </p>
-
-          <div class="demo-box">
-            <h3>Demo Access</h3>
-            <p><strong>Parent:</strong> parent@educare.com or EDU/001</p>
-            <p><strong>Teacher:</strong> teacher@educare.com</p>
-            <p><strong>Admin:</strong> admin@educare.com</p>
-            <p><strong>Password for all:</strong> 123456</p>
-          </div>
+        <div class="demo-box">
+          <h3>Demo Access</h3>
+          <p><strong>Parent:</strong> parent@educare.com or EDU/001</p>
+          <p><strong>Teacher:</strong> teacher@educare.com</p>
+          <p><strong>Admin:</strong> admin@educare.com</p>
+          <p><strong>Password:</strong> 123456</p>
         </div>
+      </div>
 
-        <div class="login-form-card">
-          <div class="role-switch">
-            <button class="role-btn active" onclick="setRole('parent')" id="btn-parent">Parent</button>
-            <button class="role-btn" onclick="setRole('teacher')" id="btn-teacher">Teacher</button>
-            <button class="role-btn" onclick="setRole('admin')" id="btn-admin">Admin</button>
+      <div class="login-right">
+        <div class="login-card">
+          <div class="login-card-top">
+            <h2>Sign In</h2>
+            <p>Select your role and continue to your dashboard</p>
           </div>
 
-          <form id="loginForm" onsubmit="handleLogin(event)">
+          <div class="role-switch">
+            <button type="button" class="role-btn active" onclick="setRole('parent')" id="btn-parent">Parent</button>
+            <button type="button" class="role-btn" onclick="setRole('teacher')" id="btn-teacher">Teacher</button>
+            <button type="button" class="role-btn" onclick="setRole('admin')" id="btn-admin">Admin</button>
+          </div>
+
+          <form id="loginForm" onsubmit="handleLogin(event)" class="login-form">
             <label id="identifierLabel">Email or Student ID</label>
             <input type="text" id="identifier" placeholder="Enter email or student ID" required />
 
@@ -146,17 +146,17 @@
         identifierLabel.textContent = "Email or Student ID";
         identifierInput.placeholder = "Enter email or student ID";
         loginTitle.textContent = "Parent Login";
-        loginText.textContent = "Parents can sign in with email or student ID to access child records.";
+        loginText.textContent = "Parents can sign in with email or student ID to access child records, fees, performance, and important school updates.";
       } else if (role === "teacher") {
         identifierLabel.textContent = "Teacher Email";
         identifierInput.placeholder = "Enter teacher email";
         loginTitle.textContent = "Teacher Login";
-        loginText.textContent = "Teachers can sign in with their official email and password.";
+        loginText.textContent = "Teachers can sign in to manage academic records, class information, attendance, and results.";
       } else {
         identifierLabel.textContent = "Admin Email";
         identifierInput.placeholder = "Enter admin email";
         loginTitle.textContent = "Admin Login";
-        loginText.textContent = "Admin can manage portal records, teachers, students, and classes.";
+        loginText.textContent = "Admin can manage the full portal, teachers, students, classes, records, and payments.";
       }
     }
 
