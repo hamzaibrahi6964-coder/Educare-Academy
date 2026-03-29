@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Educare Academy | Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dashboard-body">
+
+  <div class="dashboard-layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img src="educare logo.jpg" alt="logo" class="sidebar-logo">
+        <div>
+          <h2>Educare</h2>
+          <p>Admin Panel</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">Students</a>
+        <a href="#">Teachers</a>
+        <a href="#">Classes</a>
+        <a href="#">Payments</a>
+        <a href="#">Results</a>
+        <a href="portal.html">Back to Portal</a>
+        <a href="#" onclick="logout()">Logout</a>
+      </nav>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="dashboard-header">
+        <div>
+          <h1>Admin Dashboard</h1>
+          <p>Welcome back, <span id="adminName">Administrator</span></p>
+        </div>
+        <a href="portal.html" class="btn primary-btn">Portal Home</a>
+      </header>
+
+      <section class="dashboard-cards">
+        <div class="dash-card">
+          <h3>Total Students</h3>
+          <p>420</p>
+        </div>
+        <div class="dash-card">
+          <h3>Total Teachers</h3>
+          <p>28</p>
+        </div>
+        <div class="dash-card">
+          <h3>Total Classes</h3>
+          <p>15</p>
+        </div>
+        <div class="dash-card">
+          <h3>Fee Payments</h3>
+          <p>₦6.2M</p>
+        </div>
+      </section>
+
+      <section class="dashboard-grid">
+        <div class="dashboard-panel">
+          <h2>Recent Teacher Records</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Role</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mrs. Amina</td>
+                  <td>Mathematics Teacher</td>
+                  <td>teacher@educare.com</td>
+                </tr>
+                <tr>
+                  <td>Mr. Musa</td>
+                  <td>English Teacher</td>
+                  <td>english@educare.com</td>
+                </tr>
+                <tr>
+                  <td>Mrs. Grace</td>
+                  <td>Primary Teacher</td>
+                  <td>grace@educare.com</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="dashboard-panel">
+          <h2>Admin Notes</h2>
+          <ul class="dashboard-list">
+            <li>Confirm all teacher assignments for the term.</li>
+            <li>Update student fee records before the exam week.</li>
+            <li>Review uploaded results from subject teachers.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="dashboard-grid">
+        <div class="dashboard-panel">
+          <h2>School Structure</h2>
+          <ul class="dashboard-list">
+            <li><strong>Nursery:</strong> NUR 1 - NUR 3</li>
+            <li><strong>Primary:</strong> PRY 1 - PRY 6</li>
+            <li><strong>Junior Secondary:</strong> JSS 1 - JSS 3</li>
+            <li><strong>Senior Secondary:</strong> SS 1 - SS 3</li>
+          </ul>
+        </div>
+
+        <div class="dashboard-panel">
+          <h2>Portal Summary</h2>
+          <ul class="dashboard-list">
+            <li>Active Parent Accounts: 180</li>
+            <li>Teacher Accounts: 28</li>
+            <li>Admin Accounts: 2</li>
+            <li>Uploaded Results: 146</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const role = localStorage.getItem("educareRole");
+    if (role !== "admin") {
+      window.location.href = "login.html?role=admin";
+    }
+
+    document.getElementById("adminName").textContent = localStorage.getItem("educareUser") || "Administrator";
+
+    function logout() {
+      localStorage.removeItem("educareRole");
+      localStorage.removeItem("educareUser");
+      window.location.href = "login.html?role=admin";
+    }
+  </script>
+</body>
+</html>
